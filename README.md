@@ -1,4 +1,4 @@
-# Summary
+## Explanation
 [Distance transform](https://en.wikipedia.org/wiki/Distance_transform), also known as distance map or distance field, provides a metric or measure for the
 distance of a pixel from the boundary of a component in an image where a component is defined as a set of connected pixels. We often use a signed distance field to
 distinguish whether the pixel is inside or outside of the component.
@@ -7,6 +7,8 @@ We adopt the terms outer and outer distance transform to measure the distance fi
 inside and outside a component. The signed distance transform provides a combined measure for outer and
 inner, where the inside region is positive, and the outside region is negative.
 
+
+## How to use
 The program takes 4 parameters:
 1. an input image
 2. component size threshold
@@ -19,7 +21,7 @@ width and height above 15 pixels:
 
 `python DistanceTransform.py input.jpg 15 O `
 
-# Examples
+## Examples
 `python DistanceTransform.py examples/test.png 15 I`
 
 ![image](https://github.com/d4nieldev/DistanceTransform/assets/72974081/76e32a1a-c699-4f21-8cb2-56078f94d957)
