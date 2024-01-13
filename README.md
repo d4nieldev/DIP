@@ -3,7 +3,7 @@
 distance of a pixel from the boundary of a component in an image where a component is defined as a set of connected pixels. We often use a signed distance field to
 distinguish whether the pixel is inside or outside of the component.
 
-We adopt the terms outer and outer distance transform to measure the distance field
+We adopt the terms inner and outer distance transform to measure the distance field
 inside and outside a component. The signed distance transform provides a combined measure for outer and
 inner, where the inside region is positive, and the outside region is negative.
 
