@@ -40,12 +40,19 @@ for label in range(numLabels):
                 if labels[r][c] == label:
                     thresh[r][c] = neighbor_color
 
-# find the components outlines
+# make sure components are black and background is white
+if thresh[0][0] == 0:
+    thresh = 255 - thresh
+
+# find components outlines - in findContours the components are white
 contours, _ = cv2.findContours(255 - thresh, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
+
+# for showing the contours
+# cv2.drawContours(img, contours, -1, (0, 255, 0), 3)
 
 # initialize the distances array and draw contours on it (distance on contour is zero)
 distances = np.full(thresh.shape, np.inf)
-cv2.drawContours(distances, contours, -1, 0, 1) # ASSUMES first contour is always the corners of the image
+cv2.drawContours(distances, contours, -1, 0, 1)
 
 def minOfSurroundingCube(row, col):
     box = [
@@ -106,7 +113,6 @@ for y in range(HEIGHT):
 for y in range(HEIGHT - 1, -1, -1):
     for x in range(WIDTH - 1, -1, -1):
         calculateDistance(y, x)
-
 
 # normalize
 distances[np.isinf(distances)] = 0
