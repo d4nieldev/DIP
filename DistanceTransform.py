@@ -41,11 +41,11 @@ for label in range(numLabels):
                     thresh[r][c] = neighbor_color
 
 # find the components outlines
-contours, _ = cv2.findContours(thresh, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
+contours, _ = cv2.findContours(255 - thresh, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
 
 # initialize the distances array and draw contours on it (distance on contour is zero)
 distances = np.full(thresh.shape, np.inf)
-cv2.drawContours(distances, contours[1:], -1, 0, 1) # ASSUMES first contour is always the corners of the image
+cv2.drawContours(distances, contours, -1, 0, 1) # ASSUMES first contour is always the corners of the image
 
 def minOfSurroundingCube(row, col):
     box = [
