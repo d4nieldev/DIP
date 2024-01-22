@@ -1,3 +1,4 @@
 *.rar
 .venv
 *.DS_STORE
+.vscode
